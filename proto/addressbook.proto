@@ -1,0 +1,29 @@
+syntax = "proto3";
+package tutorial;
+
+option go_package = "github.com/protocolbuffers/protobuf/examples/go/tutorialpb";
+
+service Book {
+    rpc AddNewUser(UserRequest) returns (UserResponse) {}
+}
+
+message User {
+    int32 id = 1;
+    string name = 2;
+    string address = 3;
+    string phone = 4;
+}
+
+message AddressBook {
+    repeated User user = 1;
+}
+
+message UserResponse {
+    bool success = 1;
+}
+
+message UserRequest {
+    string name = 1;
+    string address = 2;
+    string phone = 3;
+}
